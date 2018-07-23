@@ -18,11 +18,11 @@ class SearchTweets extends Component {
   renderInputField(field){
     const className = `form-input ${field.meta.touched && field.meta.error ? 'has-error':''}`
     return(
-        <div className = {className}>
+        <div className={className}>
             <label> {field.label} </label>
-            <input className = "form-control" type = {field.type} {...field.input}/>
-            <div className = "error"> 
-            {field.meta.touched ? field.meta.error:null}
+            <input className="form-control" type={field.type} {...field.input} />
+            <div className="error">
+                {field.meta.touched ? field.meta.error : null}
             </div>
         </div>
     )
@@ -33,17 +33,15 @@ class SearchTweets extends Component {
   render() {
     return (
         <div>
-                <div className="Form">
+              <div className="Form">
                     <form onSubmit={this.props.handleSubmit((event) => this.onSubmit(event))}>
                         <div className="Form">
-
                             <Field
                                 label="Enter Hashtag (For multiple hashtag search, separate hashtags by ','. Ex #hashtag1,#hashtag2)"
                                 name="hashtag"
                                 type="text"
                                 component={this.renderInputField}
                             />
-
                             <Field
                                 label="Enter Display"
                                 name="display"
@@ -60,16 +58,11 @@ class SearchTweets extends Component {
                                 <option value="favorite_count">Favourite</option>
                                 <option value="retweet_count">Retweet</option>
                             </Field>
-                       
-    
-
                             <br />
                             <button class="btn btn-primary" type="submit">Submit</button>&nbsp;
                         </div>
                     </form>
-
-                </div>
-        
+                </div>       
         </div>
 
     )
@@ -83,12 +76,11 @@ function validate(values){
       errors.hashtag = "The hashtag is empty"
   }
 
-  if(!values.display){
+  if(!values.display)
     errors.display = "The display is empty"
-}
-if(isNaN(values.display)){
+
+    if(isNaN(values.display))
     errors.display = "The display is not a number "
-}
 if(values.display < 1)
     errors.display = "The number cannot be less than 1" ;
 if(!values.sortBy){

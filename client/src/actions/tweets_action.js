@@ -1,6 +1,5 @@
 import axios from 'axios' ;
 
-
 export function getTweets(data) {
     const request = axios.post('/api/getTweets',data)
         .then(response => response.data)
@@ -17,9 +16,7 @@ export function sortBy(data) {
     }
 }
 
-export function displayCount(data)
-{
-    console.log(data);
+export function displayCount(data){
     return {
         type: 'DISPLAY_COUNT',
         payload: data

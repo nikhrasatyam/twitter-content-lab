@@ -3,16 +3,14 @@ import TwitterData from '../containers/twitter-data'
 import SearchTweet from '../components/search-form'
 
 
- const Home = () => {
-     
+ const Home = () => { 
      return (
          <div>
              <div className="container">
-             <SearchTweet />
-             <hr />
-             <TwitterData />
+                 <SearchTweet />
+                 <hr />
+                 <TwitterData />
              </div>
-             
          </div>
      )
 }

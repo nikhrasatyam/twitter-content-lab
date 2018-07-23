@@ -5,10 +5,10 @@ const Footer = () => {
 
     return (
         <div className="footer">
-        <div className="footer-text">
-        © Copyright 2018 Linqia
+            <div className="footer-text">
+                © Copyright 2018 Linqia
+            </div>
         </div>
-  </div>
     )
   
 }
