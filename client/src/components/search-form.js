@@ -5,16 +5,15 @@ import {getTweets,sortBy,displayCount} from '../actions/tweets_action'
 
 
 class SearchTweets extends Component {
-          
+  //Invoked on form submit       
   onSubmit=(event)=>{
         this.props.dispatch(getTweets(event)).then(this.props.dispatch(displayCount(event.display)))
   }
-
+  //invoked when sortby input is changed
   sortByEventHandler = (event) =>{
-    this.props.dispatch(sortBy(event.target.value))
+    this.props.dispatch(sortBy(event.target.value)) 
   }
-
-
+  //Renders input box
   renderInputField(field){
     const className = `form-input ${field.meta.touched && field.meta.error ? 'has-error':''}`
     return(
@@ -28,9 +27,8 @@ class SearchTweets extends Component {
     )
 }
    
-
-
   render() {
+      //Redux form to handle user input
     return (
         <div>
               <div className="Form">
@@ -68,24 +66,24 @@ class SearchTweets extends Component {
     )
   }
 }
-
+//Form validation
 function validate(values){
-  const errors={};
-
-  if(!values.hashtag){
-      errors.hashtag = "The hashtag is empty"
-  }
+const errors={};
+if(!values.hashtag)
+    errors.hashtag = "The hashtag is empty"
 
   if(!values.display)
     errors.display = "The display is empty"
 
-    if(isNaN(values.display))
+if(isNaN(values.display))
     errors.display = "The display is not a number "
+
 if(values.display < 1)
     errors.display = "The number cannot be less than 1" ;
-if(!values.sortBy){
+
+if(!values.sortBy)
     values.sortBy = "favorite_count"
-}
+
 return errors;
 }
 export default reduxForm({

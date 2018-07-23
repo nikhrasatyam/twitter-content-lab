@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 
 class TwitterData extends Component 
 {
- 
+    //Render the data retrieved from the store
     renderTweets = (tweets) =>{
            return tweets.map((tweet,i) => (              
                <div class="row" key={i}>
@@ -20,6 +20,7 @@ class TwitterData extends Component
     
     render()
     {
+        //store the data retrieved from the store and stores it into variables
         const {allTweets,displayCount} = this.props.tweets ;
         const slicedTweets = allTweets.slice(0,displayCount)
         
@@ -30,9 +31,10 @@ class TwitterData extends Component
         );
     }
 }
+//Fetches tweets data from the store 
 const mapStateToProps = (state) => {
     return {
-        tweets: state.tweets
+        tweets: state.tweets  
     }
 }
 export default connect (mapStateToProps) (TwitterData) ;
